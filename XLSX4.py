@@ -41,24 +41,25 @@ for file_name in list_files:                                 # открываю 
 
     data = {}
     for n in list_columns:                                              # перебираю столбцы
-
         data_in_excel = worksheets_data.iloc[:, n].tolist()             # добавляю данные столбца в список
-        # print(data_in_excel)
         data[title[n]] = data_in_excel                                  # добавляю названия столбцов в словарь
 
     data = pd.DataFrame.from_dict(data)
 
-    if count > 0:
-        new_file_name = f"Воронка новая ({count}) {datetime.date.today()}.xlsx"
     if "ИРИНА" in file_name.upper():
         new_file_name = f"Воронка новая (Ирина) {datetime.date.today()}.xlsx"
-    if "НАТАЛЬЯ" in file_name.upper():
+    elif "НАТАЛЬЯ" in file_name.upper():
         new_file_name = f"Воронка новая (Наталья) {datetime.date.today()}.xlsx"
-    if "ПАВЕЛ" in file_name.upper():
+    elif "ПАВЕЛ" in file_name.upper():
         new_file_name = f"Воронка новая (Павел) {datetime.date.today()}.xlsx"
-    if "АЛЕКСЕЙ" in file_name.upper():
+    elif "АЛЕКСЕЙ" in file_name.upper():
         new_file_name = f"Воронка новая (Алексей) {datetime.date.today()}.xlsx"
+    elif count == 0:
+        new_file_name = f"Воронка новая {datetime.date.today()}.xlsx"
+        count += 1
+    elif count > 0:
+        new_file_name = f"Воронка новая ({count}) {datetime.date.today()}.xlsx"
+        count += 1
 
     data.to_excel(new_file_name, sheet_name='Воронка', index=False)
-    count += 1
     print("Готово", new_file_name)
