@@ -34,6 +34,7 @@ title = title_excel.iloc[0].tolist()
 list_columns = [0, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 28, 30]
 
 for n in list_columns:
+    print(n)
     data_in_excel = worksheets_data.iloc[:, n].tolist()
     data[title[n]] = data_in_excel
 
