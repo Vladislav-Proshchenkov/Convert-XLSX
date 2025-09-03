@@ -37,7 +37,7 @@ for file_name in list_files:                                 # открываю 
             title_excel = pd.read_excel(file_name, i)                   # читаю названия столбцов
 
     title = title_excel.iloc[0].tolist()                                # добавляю названия столбцов в список
-    list_columns = [0, 10, 12, 16, 18, 20, 22, 24, 26, 28, 30, 31, 33]   # список нужных столбцов
+    list_columns = [0, 10, 12, 16, 20, 24, 28, 30, 32, 36, 40, 42, 46]   # список нужных столбцов
 
     data = {}
     for n in list_columns:                                              # перебираю столбцы
